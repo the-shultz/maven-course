@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FileHandler {
 
-    public List<String> getFileLines(String fileName) {
+    public static List<String> getFileLines(String fileName) {
 
         try (FileInputStream fin = new FileInputStream(fileName)) {
             return IOUtils.readLines(fin, "utf-8");
@@ -21,7 +21,7 @@ public class FileHandler {
         return null;
     }
 
-    public boolean CreateFileWithContent(String fileName, List<String> lines) {
+    public static boolean createFileWithContent(String fileName, List<String> lines) {
 
         try (FileOutputStream fos = new FileOutputStream(fileName)){
             IOUtils.writeLines(lines, IOUtils.LINE_SEPARATOR_WINDOWS, fos, Charset.defaultCharset());
