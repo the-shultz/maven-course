@@ -19,35 +19,28 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>4.3.8.RELEASE</version>
-<!--
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
--->
-        </dependency>
-
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
             <version>0.8.2.2</version>
+            <scope>compile</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.0.3</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
 
-
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.25</version>
+            <scope>runtime</scope>
+        </dependency>
 
     </dependencies>
 
@@ -69,7 +62,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
-                <configuration> <!--Can be actually switched with properties maven.source\target.version-->
+                <configuration>
                     <mainClass>maven.course.App</mainClass>
                 </configuration>
                 <executions>
@@ -93,6 +86,18 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
+
+                            <!--by default scope is set to test -> that means give all dependencies of all scopes-->
+
+                            <!-- [compile,provided,system] kafka and it's transitive, servlets API-->
+                            <!--<includeScope>compile</includeScope>-->
+
+                            <!-- [provided] servlets API-->
+                            <!--<includeScope>provided</includeScope>-->
+
+                            <!-- [runtime, compile] no servlets API, no junit-->
+                            <!--<includeScope>runtime</includeScope>-->
+
                             <outputDirectory>
                                 ${project.build.directory}/libs
                             </outputDirectory>
