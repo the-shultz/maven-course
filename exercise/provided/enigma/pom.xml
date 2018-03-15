@@ -4,34 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pukteam.java-web-course</groupId>
-    <artifactId>enigma</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>pukteam.maven.course.exercise.provided</groupId>
+        <artifactId>text-processor-aggregator</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.7.0</version>
-                    <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-    
+    <artifactId>enigma</artifactId>
+
      <dependencies>
-         <!-- https://mvnrepository.com/artifact/junit/junit -->
          <dependency>
              <groupId>junit</groupId>
              <artifactId>junit</artifactId>
-             <version>4.12</version>
-             <scope>test</scope>
          </dependency>
-
      </dependencies>
+
 </project>
