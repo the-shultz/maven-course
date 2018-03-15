@@ -18,12 +18,12 @@ public class ProcessingResultImpl implements ProcessingResult {
     }
 
     @Override
-    public String getChecksum() {
+    public String getHash() {
         return null;
     }
 
     @Override
-    public HashMethod getChecksumMethod() {
+    public HashMethod getHashMethod() {
         return null;
     }
 

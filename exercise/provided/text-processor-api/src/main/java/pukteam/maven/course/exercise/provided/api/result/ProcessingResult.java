@@ -4,8 +4,9 @@ import pukteam.maven.course.exercise.provided.api.encrypt.EncryptorMethod;
 import pukteam.maven.course.exercise.provided.api.hash.HashMethod;
 
 public interface ProcessingResult {
-    String getChecksum();
-    HashMethod getChecksumMethod();
+
+    String getHash();
+    HashMethod getHashMethod();
     String getEncryptedData();
     EncryptorMethod getEncryptorMethod();
 
