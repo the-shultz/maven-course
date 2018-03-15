@@ -2,3 +2,6 @@ exercise/provided/enigma/target
 exercise/provided/text-processor-api/target
 exercise/provided/text-processor-api/*.iml
 exercise/provided/text-processor-api/.idea
+exercise/provided/file-handler/target
+exercise/provided/file-handler/*.iml
+exercise/provided/file-handler/.idea
