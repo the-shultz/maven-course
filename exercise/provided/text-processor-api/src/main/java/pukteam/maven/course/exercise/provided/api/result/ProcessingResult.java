@@ -8,4 +8,8 @@ public interface ProcessingResult {
     HashMethod getChecksumMethod();
     String getEncryptedData();
     EncryptorMethod getEncryptorMethod();
+
+    static ProcessingResult create(String hash, HashMethod hashMethod, String encryptedData, EncryptorMethod encryptorMethod) {
+        return new ProcessingResultImpl(hash, hashMethod, encryptedData, encryptorMethod);
+    }
 }
