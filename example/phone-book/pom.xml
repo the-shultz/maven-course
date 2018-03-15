@@ -10,12 +10,21 @@
     <name>phone-book</name>
     <url>http://maven.apache.org</url>
 
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <junit-version>3.8.1</junit-version>
+        <main-class-to-execute>maven.course.App</main-class-to-execute>
+        <dependencies-outer-library>${project.build.directory}/libs</dependencies-outer-library>
+
+    </properties>
+
     <dependencies>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -47,23 +56,13 @@
     <build>
 
         <plugins>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
-                <configuration> <!--Can be actually switched with properties maven.source\target.version-->
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
             
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>maven.course.App</mainClass>
+                    <mainClass>${main-class-to-execute}</mainClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -99,7 +98,7 @@
                             <!--<includeScope>runtime</includeScope>-->
 
                             <outputDirectory>
-                                ${project.build.directory}/libs
+                                ${dependencies-outer-library}
                             </outputDirectory>
                         </configuration>
                     </execution>
