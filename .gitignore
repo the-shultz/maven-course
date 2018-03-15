@@ -12,3 +12,6 @@ exercise/provided/*.iml
 exercise/impl/encryptor/.idea
 exercise/impl/encryptor/target
 exercise/impl/encryptor/*.iml
+example/phone-book/.idea
+example/phone-book/target
+example/phone-book/*.iml
