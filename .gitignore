@@ -1,3 +1,4 @@
-/**/.idea/
-/**/target/
 exercise/provided/enigma/target
+exercise/provided/text-processor-api/target
+exercise/provided/text-processor-api/*.iml
+exercise/provided/text-processor-api/.idea
