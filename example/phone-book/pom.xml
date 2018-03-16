@@ -4,7 +4,7 @@
 
     <groupId>maven.course</groupId>
     <artifactId>phone-book</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <name>phone-book</name>
@@ -13,13 +13,16 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <junit-version>3.8.1</junit-version>
-        <main-class-to-execute>maven.course.App</main-class-to-execute>
-        <dependencies-outer-library>${project.build.directory}/libs</dependencies-outer-library>
-
+        <junit-version>4.12</junit-version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>maven.course</groupId>
+            <artifactId>phone-book-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -28,100 +31,7 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-            <version>0.8.2.2</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.25</version>
-            <scope>runtime</scope>
-        </dependency>
-
     </dependencies>
 
-    <build>
 
-        <plugins>
-            
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <configuration>
-                    <mainClass>${main-class-to-execute}</mainClass>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                        <phase>verify</phase>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-
-                            <!--by default scope is set to test -> that means give all dependencies of all scopes-->
-
-                            <!-- [compile,provided,system] kafka and it's transitive, servlets API-->
-                            <!--<includeScope>compile</includeScope>-->
-
-                            <!-- [provided] servlets API-->
-                            <!--<includeScope>provided</includeScope>-->
-
-                            <!-- [runtime, compile] no servlets API, no junit-->
-                            <!--<includeScope>runtime</includeScope>-->
-
-                            <outputDirectory>
-                                ${dependencies-outer-library}
-                            </outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>libs/</classpathPrefix>
-                            <mainClass>maven.course.App</mainClass>
-                        </manifest>
-                    </archive>
-                    <classifier>test</classifier>
-                </configuration>
-            </plugin>
-
-        </plugins>
-
-    </build>
 </project>
