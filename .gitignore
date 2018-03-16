@@ -15,3 +15,15 @@ exercise/impl/encryptor/*.iml
 example/phone-book/.idea
 example/phone-book/target
 example/phone-book/*.iml
+example/phone-book/phone-book-common/.idea
+example/phone-book/phone-book-common/target
+example/phone-book/phone-book-common/*.iml
+example/phone-book/phone-book-service/.idea
+example/phone-book/phone-book-service/target
+example/phone-book/phone-book-service/*.iml
+example/phone-book/phone-book-storage/.idea
+example/phone-book/phone-book-storage/target
+example/phone-book/phone-book-storage/*.iml
+example/phone-book/phone-book-usage/.idea
+example/phone-book/phone-book-usage/target
+example/phone-book/phone-book-usage/*.iml
