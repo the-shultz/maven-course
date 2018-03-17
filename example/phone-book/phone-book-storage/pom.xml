@@ -12,4 +12,13 @@
 
     <artifactId>phone-book-storage</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>maven.course</groupId>
+            <artifactId>phone-book-common</artifactId>
+        </dependency>
+
+    </dependencies>
+    
 </project>
