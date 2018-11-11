@@ -27,3 +27,6 @@ example/phone-book/phone-book-storage/*.iml
 example/phone-book/phone-book-usage/.idea
 example/phone-book/phone-book-usage/target
 example/phone-book/phone-book-usage/*.iml
+example/SimpleWarExample/.idea
+example/SimpleWarExample/target
+example/SimpleWarExample/*.iml
